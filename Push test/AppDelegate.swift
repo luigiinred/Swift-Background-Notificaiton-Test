@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         }
                         NSLog("PUSHTESTS: \(i)")
 
-        
+        UNUserNotificationCenter.current().delegate = self
         registerForPushNotifications(application: application)
         getRegisteredPushNotifications()
 
@@ -48,9 +48,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                      didReceiveRemoteNotification _: [AnyHashable: Any],
                      fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         NSLog(" PUSHTESTS: didReceiveRemoteNotification")
+        
         completionHandler(UIBackgroundFetchResult.noData)
     }
 
+     func userNotificationCenter(_ center: UNUserNotificationCenter,
+                            willPresent notification: UNNotification,
+                            withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void){
+        NSLog(" PUSHTESTS: userNotificationCenter")
+        
+        completionHandler(UNNotificationPresentationOptions.alert)
+    }
+    
     func registerForPushNotifications(application:UIApplication) {
         UNUserNotificationCenter.current() // 1
             .requestAuthorization(options: [.alert, .sound, .badge]) { // 2
