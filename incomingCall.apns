@@ -1,0 +1,20 @@
+{
+  "Simulator Target Bundle": "technology.antic.test.Push-test",
+  "aps":{
+      "content-available":true,
+      "apns-priority":5,
+      "sound" : "bingbong.aiff",
+      "alert":"incoming call"
+  },
+  
+         
+         
+
+                 "type": "incomingCallStarted",
+                 "call":{
+                     "first_name": "First123",
+                     "last_name": "Last"
+                 }
+             
+         
+}
