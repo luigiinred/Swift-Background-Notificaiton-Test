@@ -49,7 +49,6 @@
 		63AFE183243675B700BC70E7 /* Push testUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Push testUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		63AFE187243675B700BC70E7 /* Push_testUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Push_testUITests.swift; sourceTree = "<group>"; };
 		63AFE189243675B700BC70E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		63AFE1952436788C00BC70E7 /* Push test.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Push test.entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,7 +99,6 @@
 		63AFE164243675B100BC70E7 /* Push test */ = {
 			isa = PBXGroup;
 			children = (
-				63AFE1952436788C00BC70E7 /* Push test.entitlements */,
 				63AFE165243675B100BC70E7 /* AppDelegate.swift */,
 				63AFE167243675B100BC70E7 /* SceneDelegate.swift */,
 				63AFE169243675B100BC70E7 /* ContentView.swift */,

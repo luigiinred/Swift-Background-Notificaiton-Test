@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 i+=1
             }
         }
-                        NSLog("PUSHTESTS: \(i)")
+        NSLog("PUSHTESTS: \(i)")
 
         UNUserNotificationCenter.current().delegate = self
         registerForPushNotifications(application: application)
@@ -47,7 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func application(_: UIApplication,
                      didReceiveRemoteNotification _: [AnyHashable: Any],
                      fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        NSLog(" PUSHTESTS: didReceiveRemoteNotification")
+        NSLog("PUSHTESTS: didReceiveRemoteNotification")
         
         completionHandler(UIBackgroundFetchResult.noData)
     }
@@ -55,7 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
      func userNotificationCenter(_ center: UNUserNotificationCenter,
                             willPresent notification: UNNotification,
                             withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void){
-        NSLog(" PUSHTESTS: userNotificationCenter")
+        NSLog("PUSHTESTS: userNotificationCenter")
         
         completionHandler(UNNotificationPresentationOptions.alert)
     }
@@ -67,7 +67,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 if granted {
                     DispatchQueue.main.async() {
                         UIApplication.shared.registerForRemoteNotifications()
-                        NSLog(" PUSHTESTS: registerForRemoteNotifications")
+                        NSLog("PUSHTESTS: registerForRemoteNotifications")
                     }
                 }
            
@@ -76,17 +76,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     }
     
     // implemented in your application delegate
-    private func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData!) {
-        NSLog("Got token data!")
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        NSLog("PUSHTESTS: Got token data!");
+        let deviceTokenString = deviceToken.map { String(format: "%02x", $0) }.joined()
+
+        NSLog("PUSHTESTS:  \(deviceTokenString)")
     }
 
-    private func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError!) {
-        NSLog("Couldn't register")
+   func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        NSLog("PUSHTESTS: Couldn't register")
     }
     
     func getRegisteredPushNotifications() {
         UNUserNotificationCenter.current().getNotificationSettings { settings in
-            NSLog("Notification settings: \(settings)")
+            NSLog("PUSHTESTS: Notification settings: \(settings)")
         }
     }
 }

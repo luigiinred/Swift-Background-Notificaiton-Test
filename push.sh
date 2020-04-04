@@ -1,0 +1,1 @@
+xcrun simctl push 00008030-0010182C3A88802E technology.antic.test.Push-test ./incomingCall.apns
